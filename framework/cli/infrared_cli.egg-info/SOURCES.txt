@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+infrared_cli/__init__.py
+infrared_cli/__main__.py
+infrared_cli/client.py
+infrared_cli/formatting.py
+infrared_cli/main.py
+infrared_cli/profile.py
+infrared_cli.egg-info/PKG-INFO
+infrared_cli.egg-info/SOURCES.txt
+infrared_cli.egg-info/dependency_links.txt
+infrared_cli.egg-info/entry_points.txt
+infrared_cli.egg-info/requires.txt
+infrared_cli.egg-info/top_level.txt
+tests/test_cli.py
+tests/test_profile_validation.py

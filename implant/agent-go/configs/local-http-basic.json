@@ -1,0 +1,10 @@
+{
+  "agent_id": "agent-local-1",
+  "server_url": "http://127.0.0.1:8000",
+  "poll_interval_seconds": 5,
+  "timeout_seconds": 10,
+  "metadata": {
+    "profile": "local-http-basic",
+    "phase": "v1"
+  }
+}

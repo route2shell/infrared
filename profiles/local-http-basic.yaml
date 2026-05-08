@@ -1,0 +1,33 @@
+name: local-http-basic
+description: Local HTTP profile for the Infrared V1 Compose lab.
+
+operator:
+  cli_name: ir
+
+transport:
+  type: http
+  beacon_interval_seconds: 5
+  jitter_percent: 0
+
+redirector:
+  type: nginx
+  host: 127.0.0.1
+  port: 8080
+  routes:
+    checkin: /api/agent/checkin
+    tasks: /api/agent/{agent_id}/tasks
+    results: /api/agent/{agent_id}/results
+
+teamserver:
+  host: 127.0.0.1
+  port: 8000
+
+telemetry:
+  sysmon: true
+  collect_process_creation: true
+  collect_network_connections: true
+  expected_events:
+    - teamserver_checkin
+    - redirector_access
+    - process_creation
+    - network_connection

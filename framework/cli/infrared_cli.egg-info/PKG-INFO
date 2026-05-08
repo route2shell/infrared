@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: infrared-cli
+Version: 0.1.0
+Summary: Infrared V1 operator CLI
+Requires-Python: >=3.11
+Requires-Dist: PyYAML<7.0,>=6.0

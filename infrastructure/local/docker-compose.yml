@@ -1,0 +1,46 @@
+services:
+  teamserver:
+    build:
+      context: ../../framework/teamserver
+      dockerfile: Dockerfile
+    image: infrared-teamserver:v1
+    container_name: infrared-teamserver
+    environment:
+      INFRARED_TEAMSERVER_DB: /data/teamserver.sqlite3
+    volumes:
+      - teamserver-data:/data
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2).read()",
+        ]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 5s
+
+  redirector:
+    image: nginx:1.24
+    container_name: infrared-redirector
+    depends_on:
+      teamserver:
+        condition: service_healthy
+    volumes:
+      - ../nginx/nginx.compose.conf:/etc/nginx/nginx.conf:ro
+      - ../nginx/logs:/var/log/nginx/infrared
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+      start_period: 3s
+
+volumes:
+  teamserver-data:

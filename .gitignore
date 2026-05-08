@@ -1,0 +1,3 @@
+__notes/
+.venv/
+.pytest_cache/
