@@ -1,3 +1,44 @@
+# Local/private project notes
 __notes/
+
+# Python environments and generated files
 .venv/
 .pytest_cache/
+**/.pytest_cache/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Local runtime state
+*.db
+*.sqlite
+*.sqlite3
+framework/teamserver/data/*
+!framework/teamserver/data/.gitignore
+
+# Logs and process files
+*.log
+*.pid
+infrastructure/nginx/logs/*
+!infrastructure/nginx/logs/.gitignore
+
+# Go build/test outputs
+implant/agent-go/bin/
+*.exe
+*.test
+coverage.out
+*.prof
+
+# Local OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

@@ -1,2 +1,0 @@
-[console_scripts]
-ir = infrared_cli.main:main
